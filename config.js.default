@@ -1,0 +1,26 @@
+const config = {};
+
+Object.defineProperties( config, {
+    'username': {
+        value: '',
+    },
+    'password': {
+        value: '',
+    },
+    'host': {
+        value: 'localhost',
+    },
+    'port': {
+        value: 3306,
+    },
+    'protocol': {
+        value: 'mysql',
+    },
+    'url': {
+        value ( databaseName ) {
+            return `${ this.protocol }://${ this.username }:${ this.password }@${ this.host }:${ this.port }/${ databaseName }`;
+        },
+    },
+} );
+
+module.exports = config;
